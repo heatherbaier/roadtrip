@@ -33,14 +33,8 @@ function add_trip() {
 
         }).then(function (response) {
             return response.text();
-        }).then(function (text) {
-            var new_trip_card = document.createElement("div");
-            new_trip_card.innerHTML = "Create new trip"; 
-            var icon = document.createElement("i");
-            icon.innerHTML = "travel_explore"; 
-            new_trip_card.appendChild(icon);
-            document.getElementById("trips").appendChild(new_trip_card);
         })
+        
 
     }
 

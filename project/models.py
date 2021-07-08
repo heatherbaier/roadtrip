@@ -3,6 +3,7 @@
 from flask_login import UserMixin
 from . import db
 
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
     email = db.Column(db.String(100), unique=True)
@@ -14,3 +15,12 @@ class Trip(db.Model):
     id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
     user = db.Column(db.String(100), unique = False)
     name = db.Column(db.String(100), unique = False)
+
+
+class Stop(db.Model):
+    id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
+    user = db.Column(db.String(100), unique = False)
+    name = db.Column(db.String(100), unique = False)
+    trip = db.Column(db.String(100), unique = False)
+    lat = db.Column(db.String(100), unique = False)
+    long = db.Column(db.String(100), unique = False)

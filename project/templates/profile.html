@@ -4,21 +4,22 @@
 
 {% block content %}
 
-    <h1 style = "color: #BB8580; font-family: 'Montserrat Alternates', sans-serif; text-align: center; font-size: 35px; font-weight:900;">Welcome, {{ name }}!</h1>
+    <h1 style = "color: #adb6c4; font-family: 'Montserrat Alternates', sans-serif; text-align: center; font-size: 35px; font-weight:900;">Welcome, {{ name }}!</h1>
 
     <div class='trips' id="trips" style = "display: grid; grid-auto-flow: column; gap: 40px; text-align: center; height: 500px; width: 75%; overflow-y:hidden; overflow-x:scroll; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
 
-        <div id='create-trip' style="width: 200px; height: 400px; background-color: #D8A48F; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px lightgray;">
+        <div id='create-trip' style="width: 200px; height: 400px; background-color: #adb6c4; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px #001b2e;">
         <h4 style="padding-top: 150px; font-size: 15px;">Create new trip</h4>
-        <button onclick="add_trip()" style="background-color: Transparent; border: none;"><i class="material-icons-outlined">add_circle</i></button>
+        <button onclick="add_trip()" style="background-color: Transparent; border: none;"><i class="material-icons-outlined" style="color: white; font-size: 45px;">add_circle</i></button>
         </div>
 
         {% for trip in temp %}
-            <div id='create-trip' class="{{ trip }}" style="width: 200px; height: 400px; background-color: #D8A48F; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px lightgray;">
+            <div id='create-trip' class="{{ trip }}" style="width: 200px; height: 400px; background-color: #adb6c4; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px #001b2e;">
                 <h4 style="padding-top: 150px;">{{ trip }}</h4>
-                <i class="material-icons-outlined" style="padding-bottom: 75px;">travel_explore</i>
-                <br>
-                <button onclick="delete_trip( '{{ trip }}' )">Delete Trip</button>
+                <div style="display: grid; grid-auto-flow: column; gap: 1px;">
+                    <a href="http://127.0.0.1:5000/{{ trip }}"><button style="background-color: Transparent; border: none;"><i class="material-icons-outlined" style="padding: 10px; background-color: white; border-radius: 50%;">map</i></button></a>
+                    <button style="background-color: Transparent; border: none;"><i class="material-icons-outlined" onclick="delete_trip( '{{ trip }}' )" style="padding: 10px; background-color: white; border-radius: 50%;">delete</i></button>
+                </div>
             </div>
         {% endfor %}
 

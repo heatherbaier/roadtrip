@@ -1,0 +1,71 @@
+<!-- templates/profile.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<!-- <script>
+
+</script> -->
+
+
+    <div id='trip-layout'>
+
+        <section id="stops" style="width: 30%; float: left;">
+
+            <div id='add-stop' style="width: 400px; height: 200px; background-color: #adb6c4; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px #001b2e;">
+                <h4 style="padding-top: 65px; font-size: 15px;">Add a stop!</h4>
+                <button onclick="add_stop( '{{ trip_name }}' )" style="background-color: Transparent; border: none;"><i class="material-icons-outlined">add_circle</i></button>
+            </div>
+
+            {% for stop in stops %}
+            <div id='add-stop' class="{{ stop }}" style="width: 400px; height: 200px; background-color: #adb6c4; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px #001b2e;">
+                <h4 style="padding-top: 65px;">{{ stop }}</h4>
+                <br>
+                <button onclick="delete_stop( '{{ stop }}' , '{{ trip_name }}')">Delete Stop</button>
+            </div>
+            {% endfor %}            
+
+        </section>
+
+        <section id="trip-map" style="width: 65%; float: right;">
+
+            <div id="map" style="width: 1000px; height: 900px"></div>
+
+            <script>
+
+                var mymap = L.map('map').setView([37.0902, -95.7129], zoom_start = 4);
+                L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+                    maxZoom: 20,
+                    attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+                }).addTo(mymap);
+
+
+                axios.get("http://127.0.0.1:5000/map-stops/{{ trip_name }}")
+
+                    .then(response => {
+
+                        var stations = L.geoJSON(response.data, {onEachFeature: onEachFeature})//.addTo(mymap);
+                        window.stations = stations;
+                        window.stations.addTo(mymap);
+
+                    }) 
+
+
+                // On each feature, highlight/remove highlight when hovered over, zoom when clicked and add popup
+                function onEachFeature(feature, layer) {
+                    layer.bindPopup(feature.properties.stopID);
+                }
+
+            </script>
+
+
+
+        </section>
+
+    </section>
+
+    </div>
+
+{% endblock %}

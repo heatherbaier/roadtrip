@@ -1,5 +1,6 @@
 <!-- templates/base.html -->
 
+
 <!DOCTYPE html>
 <html>
 
@@ -15,12 +16,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet"> 
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">    
     
     <script src="{{url_for('static', filename='js/add-trip.js')}}"></script>
     <script src="{{url_for('static', filename='js/delete-trip.js')}}"></script>
+    <script src="{{url_for('static', filename='js/add-stop.js')}}"></script>
+    <script src="{{url_for('static', filename='js/delete-stop.js')}}"></script>
+    
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+
+
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUwji6EzMjJbyGFH1bLhNfN95ocCwIhII&libraries=places">
+    </script>
 
 </head>
 
@@ -36,7 +54,7 @@
     /* Style the links inside the navigation bar */
     .topnav a {
         float: right;
-        color: #A3A380;
+        color: #001b2e;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
@@ -59,9 +77,9 @@
 
 
 
-<body style='background-color: #EFEBCE;'>
+<body style='background-color: #294c60;'>
 
-    <section class="hero is-primary is-fullheight" style="font-family: 'Montserrat Alternates', sans-serif; color: #A3A380">
+    <section class="hero is-primary is-fullheight" style="font-family: 'Montserrat Alternates', sans-serif; color: #001b2e">
 
 
         <div class="topnav">
