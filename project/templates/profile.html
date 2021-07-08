@@ -1,0 +1,31 @@
+<!-- templates/profile.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- <h1 class="title"> -->
+
+    <h1 style = "color: #BB8580; font-family: 'Montserrat Alternates', sans-serif; text-align: center;">Welcome, {{ name }}!</h1>
+
+
+    <div class='trips' id="trips" style = "column-count: {{ c_count }}; column-gap: 10px; text-align: center; height: 500px;">
+
+        <div id='create-trip' style="width: 200px; height: 400px; background-color: #D8A48F; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px lightgray;">
+        <h4>Create new trip</h4>
+        <button onclick="add_trip()"><i class="material-icons-outlined">add_circle</i></button>
+        </div>
+
+
+        {% for trip in temp %}
+
+        <div id='create-trip' style="width: 200px; height: 400px; background-color: #D8A48F; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px lightgray;">
+            <h4>{{ trip }}</h4>
+            <i class="material-icons-outlined">travel_explore</i>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- </h1> -->
+{% endblock %}
