@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <h1 style = "color: #BB8580; font-family: 'Montserrat Alternates', sans-serif; text-align: center;">Welcome, {{ name }}!</h1>
+    <h1 style = "color: #BB8580; font-family: 'Montserrat Alternates', sans-serif; text-align: center; font-size: 35px; font-weight:900; padding-bottom: 50px; padding-top: 50px;">Welcome, {{ name }}!</h1>
 
     <div class='trips' id="trips" style = "column-count: {{ c_count }}; column-gap: 10px; text-align: center; height: 500px;">
 
@@ -15,9 +15,12 @@
 
         {% for trip in temp %}
 
-            <div id='create-trip' style="width: 200px; height: 400px; background-color: #D8A48F; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px lightgray;">
+            <div id='create-trip' class="{{ trip }}" style="width: 200px; height: 400px; background-color: #D8A48F; border-radius: 10px; color: white; text-align: center; font-family: 'Montserrat Alternates', sans-serif; box-shadow: 10px 5px 5px lightgray;">
                 <h4 style="padding-top: 150px;">{{ trip }}</h4>
-                <i class="material-icons-outlined">travel_explore</i>
+                <i class="material-icons-outlined" style="padding-bottom: 75px;">travel_explore</i>
+                <br>
+                <button onclick="delete_trip( '{{ trip }}' )">Delete Trip</button>
+
             </div>
 
         {% endfor %}
