@@ -12,13 +12,12 @@ function add_trip() {
 
     // create a submit button
     var submit = document.createElement("button");
-    // submit.setAttribute("type", "submit");
     submit.innerHTML = "Add Trip"; 
     submit.onclick = function () {
 
         var trip_name = document.getElementById('trip-name').value;
 
-        fetch('http://127.0.0.1:5000/add-trip', {
+        fetch('/add-trip', {
 
             // When the data gets POSTed back to Flask, it'll be in JSON format
             headers: {
