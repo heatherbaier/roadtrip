@@ -31,42 +31,24 @@ function add_trip() {
             body: JSON.stringify({
                 "trip_name": trip_name
             })
+
         }).then(function (response) {
-
             return response.text();
-
         }).then(function (text) {
-
-            console.log("here!");
-
             var new_trip_card = document.createElement("div");
             new_trip_card.innerHTML = "Create new trip"; 
             var icon = document.createElement("i");
             icon.innerHTML = "travel_explore"; 
             new_trip_card.appendChild(icon);
-
             document.getElementById("trips").appendChild(new_trip_card);
-
-
-
         })
 
-        
-
     }
-
 
     // Append the full name input to the form
     form.appendChild(trip_name);
     form.appendChild(submit);
-
     document.getElementById("create-trip").appendChild(form);
         
 }
 
-
-// function send_trip_request() { 
-
-//     console.log("hello!")
-
-// }
